@@ -3,7 +3,7 @@ package nosql
 import (
 	"time"
 
-	"github.com/garyburd/redigo/redis"
+	"github.com/gomodule/redigo/redis"
 	sync2 "github.com/fredgan/go-utils/sync"
 )
 

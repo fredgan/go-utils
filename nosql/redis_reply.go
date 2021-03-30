@@ -1,7 +1,7 @@
 package nosql
 
 import (
-	"github.com/garyburd/redigo/redis"
+	"github.com/gomodule/redigo/redis"
 )
 
 func (r *RedisStore) Int(reply interface{}, err error) (int, error) {

@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/garyburd/redigo/redis"
+	"github.com/gomodule/redigo/redis"
 
 	"github.com/fredgan/go-utils/util"
 	"github.com/fredgan/go-utils/log"
