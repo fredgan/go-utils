@@ -7,3 +7,9 @@ This is a util lib for daily usage.
 ```
 go mod download
 ```
+
+## Dependency
+
+```
+toml
+```
