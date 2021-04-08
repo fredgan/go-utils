@@ -12,4 +12,6 @@ go mod download
 
 ```
 toml
+mysql
 ```
+
