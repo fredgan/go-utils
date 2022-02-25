@@ -35,7 +35,7 @@ func TestMaxConnect(t *testing.T) {
 			t.Log("select sleep(2s)")
 			conn.Exec("set wait_timeout=2")
 			if err := conn.Query(&rows, "SELECT SLEEP(2) as id"); err != nil {
-				t.Fatalf("sleep(2) err=%s", err)
+				t.Fatalf("sleep(2) err=%v", err)
 			} else {
 				t.Log("select sleep(2) success.")
 			}
@@ -123,7 +123,7 @@ func TestQuery(t *testing.T) {
 	DELETE := "DELETE FROM tb001 WHERE id=%d"
 	err = conn.Query(&rows3, fmt.Sprintf(DELETE, id))
 	if err != nil {
-		t.Fatalf("Delete err=%s Or res.RowsAffected is no One,=%d", err)
+		t.Fatalf("Delete err=%s Or res.RowsAffected is no One,id=%d", err, id)
 	}
 	l.Close()
 	time.Sleep(time.Second)

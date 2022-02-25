@@ -8,7 +8,7 @@ import (
 )
 
 type logEvent struct {
-	dura time.Duration
+	dur time.Duration
 	sql  string
 }
 
@@ -37,7 +37,7 @@ func (s *SqlLogger) loop() {
 		case <-s.closed:
 			for i := 0; len(s.chLogging) > 0 && i < 10000; i++ {
 				time.Sleep(time.Microsecond)
-				s.logger.Warn("Waiting for SQL log closed 10sec, remain[%sms].", 10000-i)
+				s.logger.Warn("Waiting for SQL log closed 10sec, remain[%vms].", 10000-i)
 			}
 			s.logger.Warn("SQL log-file was closed")
 			s.logger.Close()
@@ -45,13 +45,13 @@ func (s *SqlLogger) loop() {
 		case l := <-s.chLogging:
 			l.sql = strings.Replace(l.sql, "\n", "", -1)
 			l.sql = strings.Replace(l.sql, "%", "%%", -1)
-			s.logger.Info("%s - %s", l.dura, l.sql)
+			s.logger.Info("%s - %s", l.dur, l.sql)
 		}
 	}
 }
 
-func (s *SqlLogger) Write(dura time.Duration, sql string) {
-	s.chLogging <- logEvent{dura: dura, sql: sql}
+func (s *SqlLogger) Write(dur time.Duration, sql string) {
+	s.chLogging <- logEvent{dur: dur, sql: sql}
 }
 
 func (s *SqlLogger) Close() {

@@ -19,7 +19,7 @@ import (
 
 var ErrNoRows = sql.ErrNoRows
 
-var ErrReadOnly = Error{&mysql.MySQLError{ErrReadOnlyMode, "ReadOnly mode was open."}}
+var ErrReadOnly = Error{MySQLError: &mysql.MySQLError{Number: ErrReadOnlyMode, Message: "ReadOnly mode was open."}}
 
 var ErrConnectFail = errors.New("connect fail.")
 
@@ -91,8 +91,8 @@ func openWrapDBEx(host string, port int, user string, password string, dbname st
 	status := &Status{}
 	db := &WrapDB{DB: sqlxDB, Status: status, logger: nil, slowLogTimeout: DefaultSlowLogTimeout, sp: sp, readOnlyMode: false, host: host, dbname: dbname}
 
-	db.errConnectPoolWaitTimeout = Error{&mysql.MySQLError{ErrTooManyUserConnections,
-		fmt.Sprintf("Max Connections[%d] was Setting by app init. apply a new connect just wait[%s], but timeout",
+	db.errConnectPoolWaitTimeout = Error{MySQLError: &mysql.MySQLError{Number: ErrTooManyUserConnections,
+		Message: fmt.Sprintf("Max Connections[%d] was Setting by app init. apply a new connect just wait[%s], but timeout",
 			maxConnection, connectWaitTimeout)}}
 	db.connectWaitTimeout = connectWaitTimeout
 

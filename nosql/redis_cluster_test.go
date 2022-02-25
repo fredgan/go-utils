@@ -16,7 +16,7 @@ func TestStoreInterface(t *testing.T) {
 		redisClient, err := NewRedisStore("redis.store", 6379, 1)
 		So(err, ShouldBeNil)
 
-		redisCluster, err := NewRedisCluster(addrs)
+		redisCluster, err := NewRedisCluster(addrs, "")
 		So(err, ShouldBeNil)
 
 		var _ Store = redisClient
@@ -30,7 +30,7 @@ func TestKV(t *testing.T) {
 		redisClient, err := NewRedisStore("redis.store", 6379, 1)
 		So(err, ShouldBeNil)
 
-		redisCluster, err := NewRedisCluster(addrs)
+		redisCluster, err := NewRedisCluster(addrs, "")
 		So(err, ShouldBeNil)
 
 		Convey("Set", func() {
@@ -463,7 +463,7 @@ func TestHash(t *testing.T) {
 		redisClient, err := NewRedisStore("redis.store", 6379, 1)
 		So(err, ShouldBeNil)
 
-		redisCluster, err := NewRedisCluster(addrs)
+		redisCluster, err := NewRedisCluster(addrs, "")
 		So(err, ShouldBeNil)
 
 		Convey("HSet", func() {
@@ -801,7 +801,7 @@ func TestZSet(t *testing.T) {
 		redisClient, err := NewRedisStore("redis.store", 6379, 1)
 		So(err, ShouldBeNil)
 
-		redisCluster, err := NewRedisCluster(addrs)
+		redisCluster, err := NewRedisCluster(addrs, "")
 		So(err, ShouldBeNil)
 
 		Convey("ZAdd", func() {
@@ -1005,7 +1005,7 @@ func TestList(t *testing.T) {
 		redisClient, err := NewRedisStore("redis.store", 6379, 1)
 		So(err, ShouldBeNil)
 
-		redisCluster, err := NewRedisCluster(addrs)
+		redisCluster, err := NewRedisCluster(addrs, "")
 		So(err, ShouldBeNil)
 
 		Convey("LPush", func() {
@@ -1345,7 +1345,7 @@ func TestSet(t *testing.T) {
 		redisClient, err := NewRedisStore("redis.store", 6379, 1)
 		So(err, ShouldBeNil)
 
-		redisCluster, err := NewRedisCluster(addrs)
+		redisCluster, err := NewRedisCluster(addrs, "")
 		So(err, ShouldBeNil)
 
 		Convey("SAdd", func() {
@@ -1487,7 +1487,7 @@ func TestLua(t *testing.T) {
 		redisClient, err := NewRedisStore("redis.store", 6379, 1)
 		So(err, ShouldBeNil)
 
-		redisCluster, err := NewRedisCluster(addrs)
+		redisCluster, err := NewRedisCluster(addrs, "")
 		So(err, ShouldBeNil)
 
 		Convey("Eval", func() {
