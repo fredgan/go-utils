@@ -1,11 +1,11 @@
 # go-utils
 
-This is a util lib for daily usage.
+This is a go util lib for daily use.
 
 ## Usage
 
 ```
-go mod download
+go get -u github.com/fredgan/go-utils
 ```
 
 ## Dependency
