@@ -1,6 +1,6 @@
 # go-utils
 
-This is a go util lib for daily use.
+This is a go util lib for daily use. Mainly use the log libraries.
 
 ## Usage
 
