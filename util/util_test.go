@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"net/url"
 	"testing"
+
 	"github.com/fredgan/go-utils/uuid"
 )
 
@@ -180,10 +181,40 @@ var uas = []string{
 }
 
 func TestGetRealBrowser(t *testing.T) {
-	res := []string{"firefox 40.0", "qq 9.0.3100.400", "qq 9.0.3100.400", "theworld 6", "theworld 6", "maxthon 4.4.7.1000", "uc 5.2.3635.32", "liebao", "liebao", "liebao",
-		"sogou 1.0", "opera 31.0.1889.99", "chrome 44.0.2403.155", "chrome 44.0.2403.155", "ie 8.0", "safari 5.1.7", "taobao 3.5", "chrome 44.0.2403.130",
-		"chrome 44.0.2403.130", "safari 8.0.6", "safari 8.0", "safari 8.0", "uc 10.5.5.611", "miui 2.1.1", "firefox 28.0", "firefox 2.0.0.11",
-		"edge 12.10240", "qq 4.0", "2345 6.1.0.8631", "2345 6.1.0.8631"}
+	// res := []string{"firefox 40.0", "qq 9.0.3100.400", "qq 9.0.3100.400", "theworld 6", "theworld 6", "maxthon 4.4.7.1000", "uc 5.2.3635.32", "liebao", "liebao", "liebao",
+	// 	"sogou 1.0", "opera 31.0.1889.99", "chrome 44.0.2403.155", "chrome 44.0.2403.155", "ie 8.0", "safari 5.1.7", "taobao 3.5", "chrome 44.0.2403.130",
+	// 	"chrome 44.0.2403.130", "safari 8.0.6", "safari 8.0", "safari 8.0", "uc 10.5.5.611", "miui 2.1.1", "firefox 28.0", "firefox 2.0.0.11",
+	// 	"edge 12.10240", "qq 4.0", "2345 6.1.0.8631", "2345 6.1.0.8631"}
+	res := []string{"firefox",
+		"qq",
+		"qq",
+		"theworld",
+		"theworld",
+		"maxthon",
+		"uc",
+		"liebao",
+		"liebao",
+		"liebao",
+		"sogou",
+		"opera",
+		"chrome",
+		"chrome",
+		"ie",
+		"safari",
+		"taobao",
+		"chrome",
+		"chrome",
+		"safari",
+		"safari",
+		"safari",
+		"uc",
+		"miui",
+		"firefox",
+		"firefox",
+		"edge",
+		"qq",
+		"2345",
+		"2345"}
 
 	for i, ua := range uas {
 		browser := GetRealBrowser(ua)
